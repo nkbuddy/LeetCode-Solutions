@@ -11,13 +11,6 @@
  * @return {number}
  */
 var maxDepth = function(root) {
-    let maxDepth = 0
-    let BFS = (node, level) => {
-        if (node === null) return
-        if (maxDepth < level) maxDepth = level
-        BFS(node.left, level + 1)
-        BFS(node.right, level+1)
-    }
-    BFS(root, 1)
-    return maxDepth
+    if (root === null) return 0
+    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
 };

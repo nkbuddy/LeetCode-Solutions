@@ -10,7 +10,22 @@
  * @param {TreeNode} root
  * @return {number}
  */
+// var maxDepth = function(root) {
+//     if (root === null) return 0
+//     return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+// };
 var maxDepth = function(root) {
-    if (root === null) return 0
-    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+    if (root === null) return []
+    let results = []
+    let quenue = [root]
+    while (quenue.length){
+        let len = quenue.length
+        results.push(quenue.map(node => node.val))
+        while (len--){
+            let node = quenue.shift()
+            if (node.left) quenue.push(node.left)
+            if (node.right) quenue.push(node.right)
+        }
+    }
+    return results.length
 };

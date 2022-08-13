@@ -4,14 +4,9 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    let seenNums = {}
-    for (let i = 0; i < nums.length; i++){
-        let currentInt = nums[i]
-        let difference = target - currentInt
-        let index = seenNums[difference]
-        if (index !== undefined){
-            return [index, i]
+    for (let i = 0; i < nums.length - 1;i++){
+        for (let j = i + 1; j < nums.length; j++){
+            if (nums[i] + nums[j] === target) return [i, j]
         }
-        else {seenNums[currentInt] = i}
     }
-}
+};

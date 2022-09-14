@@ -3,9 +3,9 @@
  * @return {number}
  */
 var climbStairs = function(n) {
-    let combos = [1, 1, 2]
-    for (let i = 3; i <= n; i++){
-         combos[i] = combos[i-1] + combos[i-2]
+    let steps = [1,1,2]
+    for (let i = 2; i <= n; i++){
+        steps[i] = steps[i-1] + steps[i-2]
     }
-    return combos[n]
-};
+    return steps[n]
+}

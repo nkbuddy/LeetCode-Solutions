@@ -4,10 +4,17 @@
  * @return {boolean}
  */
 var searchMatrix = function(matrix, target) {
-    for (let i = 0; i < matrix.length; i++){
-        for (let j = 0; j < matrix[i].length; j++){
-            if (matrix[i][j] === target) return true
-        }
+    let rows = matrix.length
+    let col = matrix[0].length
+    let left = 0
+    let right = rows * col -1
+    while (left <= right){
+        let mid = Math.floor((left + right) / 2)
+        let midVal = matrix[Math.floor(mid / col)][mid % col]
+        
+        if (midVal === target) return true
+        if (midVal > target){right = mid - 1}
+        else {left = mid + 1}
     }
     return false
 };

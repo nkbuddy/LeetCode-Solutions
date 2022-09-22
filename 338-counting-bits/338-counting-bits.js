@@ -3,12 +3,13 @@
  * @return {number[]}
  */
 var countBits = function(n) {
-    let count = []
-    while (n > 0 ) {
-        let int = n.toString(2)
-        count.unshift(int.match(/1/g).length)
-        n -= 1
+    let count = new Array(n+1).fill(0)
+    offset = 1
+    for (let i = 1;i <= n; i++){
+        if (offset * 2 === i){offset = i}
+    
+       count[i] = 1 + count[i - offset]
+
     }
-    count.unshift(0)
     return count
 };

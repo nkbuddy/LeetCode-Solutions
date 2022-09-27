@@ -3,15 +3,15 @@
  * @return {number[]}
  */
 var getRow = function(rowIndex) {
-    let triangle = [[1]]
-    for (let i = 1; i <= rowIndex; i++){
-        let prevRow = triangle[i -1]
-        let currRow = [1]
-        for (let j = 1; j < prevRow.length; j++){
-            currRow[j] = prevRow[j] + prevRow[j - 1]
+    let triangle = []
+    for (let i = 0; i <= rowIndex; i++){
+       triangle[i] = []
+       triangle[i][0] = triangle[i][i] = 1 
+    }
+    for (let j = 2; j <= rowIndex; j++ ){
+        for (let k = 1; k < j; k++){
+            triangle[j][k] = triangle[j -1][k] + triangle[j -1][k - 1]
         }
-        currRow.push(1)
-        triangle.push(currRow)
     }
     return triangle[rowIndex]
 };

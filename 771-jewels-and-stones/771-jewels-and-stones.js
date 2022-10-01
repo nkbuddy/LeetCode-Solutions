@@ -4,13 +4,11 @@
  * @return {number}
  */
 var numJewelsInStones = function(jewels, stones) {
-    let jewelType = {}
-    let result = 0
-    for (let jewel of jewels){
-        jewelType[jewel] = true
-    }
+    let count = 0
     for (let stone of stones){
-        if (jewelType[stone] === true) result++
+        if (jewels.indexOf(stone) >= 0){
+            count++
+        }
     }
-    return result
+    return count
 };

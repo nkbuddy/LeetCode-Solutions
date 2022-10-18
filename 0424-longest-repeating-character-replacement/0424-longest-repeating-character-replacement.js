@@ -13,7 +13,6 @@ var characterReplacement = function(s, k) {
         map[s[r]] = map[s[r]] + 1 || 1
         max = Math.max(max, map[s[r]])
         let len = r - l + 1
-        console.log(Math.max(...Object.values(map)),map,len,s[r])
         if ( len - max > k){
              map[s[l]]--
             l++

@@ -3,10 +3,9 @@
  * @return {number}
  */
 var findDuplicate = function(nums) {
-    let seen = new Set 
-    let duplicates = []
-    for (let num of nums){
-        if (seen.has(num)){return num}
-        else {seen.add(num)}
+    for (let i = 0; i < nums.length; i++){
+        let ind = Math.abs(nums[i]) - 1
+        if (nums[ind] < 0){return Math.abs(nums[i])}
+        nums[ind] = -nums[ind]
     }
 };
